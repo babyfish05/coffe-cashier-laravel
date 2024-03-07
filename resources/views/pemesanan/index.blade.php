@@ -5,54 +5,45 @@
 
 @section('content')
     <section class="content">
-        <main id="main" class="main mt-5">
-
-            <div class="container" style="display: flex; ">
+        <main id="main" class="main m-2 row">
                 <!-- Default box -->
-                <div class="card1 shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 800px;">
-                    <div class="pagetitle">
-                        <h1>Order</h1>
+                <div class="col p-3 bg-white rounded" style="overflow: hidden; height: max-content;">
+                    <h1>Order</h1>
 
-                    </div>
-
-                    <label for="nama_pemesan" class="col-sm-4 col-form-label">Nama pelanggan</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nama_pemesan" name='nama_pemesan'>
-                    </div>
-                    <div class="item-sidebar" >
-                        <div class="menu-container">
-                            @foreach ($jenis as $j)
-                                <li>
-                                    <h3>{{ $j->nama_jenis }}</h3>
-                                    <div class="menu">
-                                        @foreach ($j->menu as $menu)
-                                            {{-- <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
-                                                {{ $menu->nama_menu }}
-                                            </li> --}}
-                                            <div class="col rounded mx-1 my-2 menu-item" data-id="{{ $menu->id }}" data-nama="{{ $menu->nama }}" data-harga="{{ $menu->harga }}" style="background-color: #e4fdf9">
-                                                <div class="d-flex flex-column align-items-center justify-content-between" style="height: 100%;">
-                                                  <img src="{{ asset('storage/' . $menu->image) }}" class="ms-auto mt-2" alt="" style="width: 80px;">
-                                                  <h5 class="text-center mt-3 menu">{{ $menu->nama_menu }}</h5>
-                                                  <p class="text-center">Rp. {{ $menu->harga }}</p>
-                                                </div>
-                                                {{-- <div class="menu" data-id="{{ $menu->id }}" data-harga="{{ $menu->harga }}">
-                                                </div> --}}
-                                              </div>
-                                        @endforeach
-                                    </div>
-                                </li>
-                            @endforeach
+                    <div class="row mb-3">
+                        <label for="nama_pemesan" class="col-sm-3 col-form-label">Nama pelanggan</label>
+                        <div class="col-sm">
+                            <input type="text" class="form-control" id="nama_pemesan" name='nama_pemesan'>
                         </div>
                     </div>
+                    <div class="menu-container px-1" style="overflow: hidden">
+                        @foreach ($jenis as $j)
+                            <h3>{{ $j->nama_jenis }}</h3>
+                            <div class="row px-3 justify-content-between">
+                                @foreach ($j->menu as $menu)
+                                    {{-- <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
+                                        {{ $menu->nama_menu }}
+                                    </li> --}}
+                                    <div class="col-md-3 rounded mx-1 my-2 menu-item" data-id="{{ $menu->id }}" data-nama="{{ $menu->nama_menu }}" data-harga="{{ $menu->harga }}" style="background-color: #e4fdf9">
+                                        <div class="d-flex flex-column align-items-center justify-content-between" style="height: 100%;">
+                                            <img src="{{ asset('storage/'.$menu->image) }}" class="ms-auto mt-2 img-fluid" alt="" style="width: 80px;">
+                                            <h4 class="text-center mt-3 menu">{{ $menu->nama_menu }}</h4>
+                                            <p class="text-center">Rp. <span>{{ $menu->harga }}</span></p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="item-content col-md-5 border border-info-subtle rounded shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="background-color: white">
+                <div class="item-content col-md-4 border border-info-subtle rounded shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="background-color: white; height: max-content">
                     <h1>Pesanan</h1>
-                    <ul class="ordered-list">
-                    </ul>
+                    <div class="ordered-list">
+                        
+                    </div>
                     Total Bayar : <h2 id="total">0</h2>
-                    <button id="btn-bayar">bayar</button>
+                    <button class="btn btn-primary col mb-3" id="btn-bayar">bayar</button>
                 </div>
-            </div>
             </div>
             
             <!-- /.card-footer-->
@@ -101,12 +92,12 @@
         };
 
         const changeQty = (el, inc) => {
-            const id = $(el).closest('li')[0].dataset.id;
+            const id = $(el).closest('.li')[0].dataset.id;
             const index = orderedList.findIndex(list => list.menu_id == id)
             orderedList[index].qty += orderedList[index].qty == 1 && inc == -1 ? 0 : inc
 
-            const txt_subtotal = $(el).closest('li').find('.subtotal')[0];
-            const txt_qty = $(el).closest('li').find('.qty-item')[0]
+            const txt_subtotal = $(el).closest('.li').find('.subtotal')[0];
+            const txt_qty = $(el).closest('.li').find('.qty-item')[0]
             txt_qty.value = parseInt(txt_qty.value) == 1 && inc == -1 ? 1 : parseInt(txt_qty.value) + inc
             txt_subtotal.innerHTML = orderedList[index].harga * orderedList[index].qty;
 
@@ -123,7 +114,7 @@
         })
 
         $('.ordered-list').on('click', '.remove-item', function() {
-            const item = $(this).closest('li')[0];
+            const item = $(this).closest('.li')[0];
             let index = orderedList.findIndex(list => list.menu_id == parseInt(item.dataset.id))
             orderedList.splice(index, 1)
             $(item).remove();
@@ -163,33 +154,33 @@
         })
 
         $(".menu-item").click(function(e) {
-            const menu_clicked = $(this).text();
-            const data = $(e.target);
-            const harga = parseFloat($(data).data('harga'));
-            const id = parseInt($(data).data('id'));
+            // const menu_clicked = $(this).text();
+            const nama = $(this).data('nama');
+            const data = $(this)[0].dataset;
+            // const harga = parseFloat($(this).data('harga'));
+            const harga = parseFloat(data.harga);
+            const id = parseInt(data.id);
 
             if (orderedList.every(list => list.menu_id !== id)) {
                 let dataN = {
                     'menu_id': id,
-                    'menu': menu_clicked,
+                    'menu': nama,
                     'harga': harga,
                     'qty': 1
                 }
                 orderedList.push(dataN);
 
-                let listOrder = `<li data-id="${id}"><h3>${menu_clicked}</h3>`;
-                listOrder += `Sub Total : Rp. ${harga}`;
-                listOrder += `<button class='remove-item'>Hapus</button>
-                              <button class="btn-dec">-</button>`;
-                listOrder += `<input class="qty-item"
-                                     type="number"
-                                     value="1"
-                                     style="width:40px"
-                                     readonly
-                                     />
-                            <button class="btn-inc">+</button><h2>
-                            <span class="subtotal">${harga * 1}</span>
-                            </li>`;
+                let listOrder = `<div class="card p-2 my-2 li" data-id="${id}" style="border-left: 8px solid #7070f8;">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>${nama}</h3>
+                                        <input class="qty-item" type="number" value="1" style="width:40px;height: 25px;border: none; outline: none;" readonly/>
+                                        <div class="d-flex">
+                                            <button class="btn btn-danger ms-auto p-0 remove-item" style="width: 25px"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-primary ms-auto p-0 btn-dec" style="width: 25px"><i class="fa fa-minus"></i></button>
+                                            <button class="btn btn-primary ms-auto p-0 btn-inc" style="width: 25px"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>`;
 
                 $('.ordered-list').append(listOrder)
             }
@@ -201,6 +192,14 @@
 @endpush
 <style>
 
+.menu-item h4.menu::after{
+    content: '';
+    position: absolute;
+    /* background: #000; */
+    cursor: pointer;
+    top: 0; right: 0; bottom: 0; left: 0;
+}
+
 /* .card1{
     background-color: white;
     border-radius: 5px;
@@ -208,7 +207,7 @@
     padding: 12px;
 } */
     
-     .menu-container {
+     /* .menu-container {
         list-style-type: none;
         color: rgb(71, 71, 71);
         
@@ -245,7 +244,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
            
 
-    }
+    } */
  
     
 </style>
