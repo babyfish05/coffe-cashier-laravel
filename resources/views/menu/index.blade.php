@@ -9,7 +9,7 @@
 <section class="content p-2">
 
     <!-- Default box -->
-    <div class="card  shadow-lg p-3 mb-4 bg-body-tertiary rounded">
+    <div class="card  shadow-lg p-3 mb-4 bg-body-tertiary rounded" style="overflow-x: hidden;">
       <div class="card-header">
       <h1 style="font-size: 40px;">Menu</h1>
        </div>
