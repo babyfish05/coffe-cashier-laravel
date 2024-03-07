@@ -19,7 +19,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="nama_pemesan" name='nama_pemesan'>
                     </div>
-                    <div class="item-sidebar" >
+                    <div class="item-sidebar">
                         <div class="menu-container">
                             @foreach ($jenis as $j)
                                 <li>
@@ -34,7 +34,7 @@
                                                   <img src="{{ asset('storage/' . $menu->image) }}" class="ms-auto mt-2" alt="" style="width: 80px;">
                                                   <h5 class="text-center mt-3 menu">{{ $menu->nama_menu }}</h5>
                                                   <p class="text-center">Rp. {{ $menu->harga }}</p>
-                                                </div>
+                                                 </div>
                                                 {{-- <div class="menu" data-id="{{ $menu->id }}" data-harga="{{ $menu->harga }}">
                                                 </div> --}}
                                               </div>
@@ -53,10 +53,10 @@
                     <button id="btn-bayar">bayar</button>
                 </div>
             </div>
-            </div>
+            
             
             <!-- /.card-footer-->
-            </div>
+           
             <!-- /.card -->
         </main><!-- End #main -->
     </section>
