@@ -47,7 +47,7 @@
             </div>
             
             <!-- /.card-footer-->
-           
+            </div>
             <!-- /.card -->
         </main><!-- End #main -->
     </section>
@@ -180,6 +180,7 @@
                                             <button class="btn btn-primary ms-auto p-0 btn-inc" style="width: 25px"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
+                                    <p>Rp. <span class="subtotal">${harga * 1}</span></p>
                                 </div>`;
 
                 $('.ordered-list').append(listOrder)
