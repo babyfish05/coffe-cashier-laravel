@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <h5 class="modal-title" id="exampleModalLabel">ISI JENIS</h5> 
+                <h5 class="modal-title" id="exampleModalLabel">ISI MENU</h5> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span> 
                 </button> 
@@ -67,7 +67,7 @@ aria-hidden="true">
 <div class="modal-dialog" role="document"> 
     <div class="modal-content"> 
         <div class="modal-header"> 
-            <h5 class="modal-title" id="exampleModalLabel">ISI DATA jenis</h5> 
+            <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5> 
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                 <span aria-hidden="true">&times;</span> 
             </button> 

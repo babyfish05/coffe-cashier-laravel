@@ -38,11 +38,11 @@
               </div>    
       @endif
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormjenis">
-        <i class="fas fa-plus"></i> Tambah Pengajuan
+        <i class="fas fa-plus"></i> Tambah Pelanggan
       </button>
-      {{-- <a href="{{route('pelanggan.store')}}" class="btn btn-danger">
+      <a href="{{route('pelanggan')}}" class="btn btn-danger">
         <i class="fas fa-file-pdf"></i> Export PDF
-      </a> --}}
+      </a>
       <button class="btn btn-primary"data-toggle="modal" data-target="#form-import"><i class="fa-solid fa-file-export"></i>import excel</button>
 
       <a href="{{ url('export/pelanggan') }}" class="btn-success btn"><span> <i class="fas fa-table"></i>Export

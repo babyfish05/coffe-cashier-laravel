@@ -14,9 +14,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\jenisExport;
 use App\Imports\jenisImport;
 use Barryvdh\DomPDF\Facade\Pdf;
+//use itu import class
 
-
-class JenisController extends Controller
+class JenisController extends Controller //extends inheritance
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,6 @@ class JenisController extends Controller
     public function index()
     {
         $data['Jenis'] = Jenis::all();
-
 
         return view('Jenis.index', compact('data'));
     }
@@ -95,15 +94,17 @@ class JenisController extends Controller
         $date = date('Y-m-d');
         return Excel::download(new JenisExport, $date . '_jenis.xlsx');
     }
+
     public function importData(Request $request)
     {
-        Excel::import(new JenisImport, $request->import);
+        Excel::import(new JenisImport, $request->import);  //new itu intance/objek
         return redirect()->back()->with('success', 'import berhasil');
     }
-    // public function generatepdf()
-    // {
-    //     $data['jenis'] = jenis::all();
-    //     $pdf = Pdf::loadView('jenis.data', compact('data'));
-    //     return $pdf->download('jenis.pdf');
-    // }
+    
+    public function generatepdf()
+    {
+        $Jenis = Jenis::all();
+        $pdf = Pdf::loadView('Jenis.jenisPdf', compact('Jenis'));
+        return $pdf->download('Jenis.pdf');
+    }
 }

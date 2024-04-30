@@ -8,14 +8,14 @@
         <main id="main" class="main m-2 row">
                 <!-- Default box -->
                 <div class="col p-3 bg-white rounded" style="overflow: hidden; height: max-content;">
-                    <h1>Order</h1>
+                    <h1>ORDER MENU</h1>
 
-                    <div class="row mb-3">
+                    {{-- <div class="row mb-3">
                         <label for="nama_pemesan" class="col-sm-3 col-form-label">Nama pelanggan</label>
                         <div class="col-sm">
                             <input type="text" class="form-control" id="nama_pemesan" name='nama_pemesan'>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="menu-container px-1" style="overflow: hidden">
                         @foreach ($jenis as $j)
                             <h3>{{ $j->nama_jenis }}</h3>
@@ -173,10 +173,10 @@
                 let listOrder = `<div class="card p-2 my-2 li" data-id="${id}" style="border-left: 8px solid #7070f8;">
                                     <div class="d-flex justify-content-between">
                                         <h3>${nama}</h3>
-                                        <input class="qty-item" type="number" value="1" style="width:40px;height: 25px;border: none; outline: none;" readonly/>
+                                        <input class="qty-item" type="number" value="1" style="width:40px;height: 25px;border: none; outline: none;" readonly />
                                         <div class="d-flex">
                                             <button class="btn btn-danger ms-auto p-0 remove-item" style="width: 25px"><i class="fa fa-trash"></i></button>
-                                            <button class="btn btn-primary ms-auto p-0 btn-dec" style="width: 25px"><i class="fa fa-minus"></i></button>
+                                               <button class="btn btn-primary ms-auto p-0 btn-dec" style="width: 25px"><i class="fa fa-minus"></i></button>
                                             <button class="btn btn-primary ms-auto p-0 btn-inc" style="width: 25px"><i class="fa fa-plus"></i></button>
                                         </div>
                                     </div>
@@ -248,4 +248,4 @@
     } */
  
     
-</style>
+</style>    

@@ -16,9 +16,11 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MenuExport;
 use App\Imports\MenuImport;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
+//use itu import class
 
-class MenuController extends Controller
+class MenuController extends Controller //extends inheritance
 {
     /**
      * Display a listing of the resource.
@@ -65,7 +67,6 @@ class MenuController extends Controller
         $menu->save();
 
         return redirect('menu')->with('success', 'Data menu berhasil ditambahkan');
-
     }
 
     /**
@@ -90,8 +91,14 @@ class MenuController extends Controller
     public function update(UpdateMenuRequest $request, Menu $menu)
     {
         $validated = $request->validated();
-        $menu->update($validated);
 
+        if ($request->hasFile('image')) {
+            if ($menu->image) {
+                Storage::delete($menu->image);
+            }
+            $validated['image'] = $request->file('image')->store('publik/menu');
+        }
+        $menu->update($validated);
         return redirect()
             ->back()
             ->withSuccess(__('update berhasil'));
@@ -108,6 +115,7 @@ class MenuController extends Controller
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getcode());
         }
+        //logic application try catch
     }
     public function export()
     {
@@ -118,12 +126,12 @@ class MenuController extends Controller
     public function importData(Request $request)
     {
         Excel::import(new MenuImport, $request->import);
-        return redirect()->back()->with('success', 'import berhasil');
+        return redirect()->back()->with('success', 'import berhasil'); //new itu intace / objek
     }
     public function generatepdf()
     {
-        $data['menu'] = menu::all();
-        $pdf = Pdf::loadView('menu.data', compact('data'));
+        $menu = menu::all();
+        $pdf = Pdf::loadView('menu.menuPdf', compact('menu'));
         return $pdf->download('menu.pdf');
     }
 }

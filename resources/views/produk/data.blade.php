@@ -1,4 +1,4 @@
-<table class="table table-compact table-stripped table-responsive-lg"  id="myJenis">
+<table class="table table-compact table-stripped table-responsive-lg"  id="myTable">
     <thead>
         <tr>
             <th>No</th>

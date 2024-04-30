@@ -37,15 +37,15 @@
                          </button>
               </div>    
       @endif
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormcategory">
-        <i class="fas fa-plus"></i> Tambah Pengajuan
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormCategory">
+        <i class="fas fa-plus"></i> Tambah category
       </button>
       <a href="{{route('category.store')}}" class="btn btn-danger">
         <i class="fas fa-file-pdf"></i> Export PDF
       </a>
-      <button class="btn btn-primary"data-toggle="modal" data-target="#form-import"><i class="fa-solid fa-file-export"></i>import excel</button>
+      <button class="btn btn-primary"data-toggle="modal" data-target="#form-import"><i class="fa-solid file-export"></i>import excel</button>
 
-      <a href="{{ url('export/category') }}" class="btn-success btn"><span> <i class="fas fa-table"></i>Export
+      <a href="{{ url('import-category') }}" class="btn-success btn"><span> <i class="fas fa-table"></i>Export
         excel</span></a>
       
       </div>

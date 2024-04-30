@@ -22,7 +22,8 @@ class StoreStokRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'jumlah_stok' => 'required'
+            'jumlah_stok' => 'required',
+            'menu_id'=>'required'
         ];
     }
 
@@ -30,6 +31,7 @@ class StoreStokRequest extends FormRequest
     { {
             return [
                 'jumlah_stok.required' => 'Nama Jenis belum diisi!',
+                'menu_id'=> 'menu belum diisi!'
 
             ];
         }

@@ -1,11 +1,11 @@
-<table class="table table-compact table-stripped table-responsive-xl" id="myJenis">
+<table class="table table-compact table-stripped table-responsive-xl" id="myTable">
     <thead>
         <tr>
             <th>No</th>
             <th>nama menu</th>
             <th>harga</th>
             <th>image</th>
-            <th>jenis id</th>
+            <th>jenis</th>
             <th>deskripsi</th>
             <th>action</th>
 
@@ -20,7 +20,7 @@
             <td>
                 <img src="{{ asset('storage/'.$p->image) }}" alt="image" class="" style="width: 60px; height: 60px;">    
             </td>
-            <td>{{ $p->jenis_id}}</td>
+            <td>{{ $p->jenis->nama_jenis}}</td>
             <td>{{ $p->deskripsi}}</td>
             
             <td>
@@ -28,8 +28,8 @@
                 data-id = "{{ $p->id}}"
                 data-nama_menu ="{{ $p->nama_menu}}"
                 data-harga ="{{ $p->harga}}"
-                data-image ="{{ $p->image}}"
                 data-jenis_id="{{ $p->jenis_id}}"
+                data-image ="{{ Storage::url($p->image) }}"
                 data-deskripsi ="{{ $p->deskripsi}}"
                 >
                 <i class="fas fa-edit"></i>

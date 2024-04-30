@@ -12,6 +12,17 @@
                 <form method="post" class="form-edit"> 
                     @csrf 
                     @method('put')
+                    <div class="mb-3 row">
+                        <label for="jenis_id" class="col-sm-4 col-form-label">nama menu</label>
+                        <div class="col-sm-8">
+                            <select name="menu_id" id="menu_id" class="form-control">
+                            <option value="" selected disabled>pilih menu</option>
+                            @foreach ($menu as $p )
+                                <option value="{{ $p->id }}">{{ $p->nama_menu }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
                     
                     <div class="form-group row"> 
                         <label for="jumlah_stok" class="col-sm-4 col-form-label">jumlah stok</label> 

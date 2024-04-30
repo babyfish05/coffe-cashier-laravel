@@ -13,6 +13,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\pelangganExport;
 use Illuminate\Http\Request;
 use App\Imports\PelangganImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PelangganController extends Controller
 {
@@ -95,5 +96,11 @@ class PelangganController extends Controller
     {
         Excel::import(new PelangganImport, $request->import);
         return redirect()->back()->with('success', 'import berhasil');
+    }
+    public function generatepdf()
+    {
+        $Pelanggan = Pelanggan::all();
+        $pdf = Pdf::loadView('Pelanggan.pelangganPdf', compact('Pelanggan'));
+        return $pdf->download('Pelanggan.pdf');
     }
 }

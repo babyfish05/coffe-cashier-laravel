@@ -121,7 +121,7 @@
       $(this).find('#id').val(id)
       $(this).find('#nama_menu').val(nama_menu)
       $(this).find('#harga').val(harga)
-      $(this).find('#image').val(image)
+      // $(this).find('#image').val(image)
       $(this).find('#deskripsi').val(deskripsi)
       
 
@@ -142,7 +142,7 @@
       Swal.fire({
        icon: 'error',
        title: 'Hapus Data',
-       html: `Apakah data <b>${nama_menu}</b> akan di hapus?`,
+       html: `Apakah data <b></b> akan di hapus?`,
        confirmButtonText: 'ya',
        denyButtonText: 'tidak',
        showDenyButton: true,

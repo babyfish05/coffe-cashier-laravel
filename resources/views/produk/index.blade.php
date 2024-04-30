@@ -97,7 +97,7 @@
 
 
     $(function(){
-        $('#myJenis').DataTable()
+        $('#myTable').DataTable()
     })
 
     $(document).ready(function(){

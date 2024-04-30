@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\stokExport;
 use App\Imports\StokImport;
+use App\Models\Menu;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Mockery\Expectation;
 
 class stokController extends Controller
 {
@@ -21,8 +24,17 @@ class stokController extends Controller
      */
     public function index()
     {
-        $data['stok'] = stok::all();
-        return view('stok.index', compact('data'));
+        $stok = stok::all();
+        try{
+         $data['stok'] = stok::with(['menu'])->get();
+         $data['menu'] = Menu::get();
+         
+         return view('stok.index')->with($data);
+        } catch(QueryException | Expectation | PDOException $error){
+            return redirect()->back()->withErrors(['message' => $error->getMessage()]);
+        }
+        // $data['stok'] = stok::all();
+        // return view('stok.index', compact('data'));
     }
 
     /**
@@ -95,6 +107,12 @@ class stokController extends Controller
     {
         Excel::import(new StokImport, $request->import);
         return redirect()->back()->with('success', 'import berhasil');
+    }
+    public function generatepdf()
+    {
+        $Stok = Stok::all();
+        $pdf = Pdf::loadView('Stok.stokPdf', compact('Stok'));
+        return $pdf->download('Stok.pdf');
     }
 
 }

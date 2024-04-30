@@ -24,7 +24,7 @@ class UpdateMenuRequest extends FormRequest
         return [
             'nama_menu' => 'required|string',
             'harga' => 'required |string',
-            'image' => 'required| string',
+            'image' => 'nullable|image',
             'deskripsi' => 'required',
         ];
     }

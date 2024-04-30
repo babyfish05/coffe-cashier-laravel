@@ -3,13 +3,13 @@
     <div class="modal-dialog" role="document"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <h5 class="modal-title" id="exampleModalLabel">Edit data Pengajuan</h5> 
+                <h5 class="modal-title" id="exampleModalLabel">Edit menu</h5> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span> 
                 </button> 
             </div> 
             <div class="modal-body"> 
-                <form method="post" class="form-edit"> 
+                <form method="post" class="form-edit" enctype="multipart/form-data"> 
                     @csrf 
                     @method('put')
                     
@@ -28,17 +28,21 @@
                                 name="harga"> 
                         </div> 
                     </div>
-                    <div class="form-group row"> 
-                        <label for="jenis_id" class="col-sm-4 col-form-label">jenis_id</label> 
-                        <div class="col-sm-8"> 
-                            <input type="text" class="form-control" id="jenis_id" placeholder="jenis_id" 
-                                name="jenis_id"> 
-                        </div> 
+                    <div class="form-group row">
+                        <label for="Jenis" class="col-sm-4 col-form-label"> Jenis</label>
+                        <div class="col-sm-8">
+                            <select name="jenis_id" id="" class="form-control">
+                                @foreach ($jenis as $label)
+                                    <option value="{{ $label->id }}">{{ $label->nama_jenis }}</option>
+                                @endforeach
+                            </select>
+                          
+                        </div>
                     </div>
                     <div class="form-group row"> 
                         <label for="image" class="col-sm-4 col-form-label">image</label> 
                         <div class="col-sm-8"> 
-                            <input type="text" class="form-control" id="image" placeholder="image" 
+                            <input type="file" class="form-control" id="image" placeholder="image" 
                                 name="image"> 
                         </div> 
                     </div>

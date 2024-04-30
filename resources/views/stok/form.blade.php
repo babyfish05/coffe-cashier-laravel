@@ -11,6 +11,19 @@
             <div class="modal-body"> 
                 <form method="post" action={{ route('stok.store') }}> 
                     @csrf  
+                    <div id="method"></div>
+                    <div class="mb-3 row">
+                        <label for="jenis_id" class="col-sm-4 col-form-label">nama menu</label>
+                        <div class="col-sm-8">
+                            <select name="menu_id" id="menu_id" class="form-control">
+                            <option value="" selected disabled>pilih menu</option>
+                            @foreach ($menu as $p )
+                                <option value="{{ $p->id }}">{{ $p->nama_menu }}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
+                   
                     <div class="form-group row"> 
                         <label for="jumlah_stok" class="col-sm-4 col-form-label">nama stok</label> 
                         <div class="col-sm-8"> 
@@ -34,7 +47,7 @@
     <div class="modal-dialog" role="document"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <h5 class="modal-title" id="exampleModalLabel">ISI DATA jenis</h5> 
+                <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span> 
                 </button> 

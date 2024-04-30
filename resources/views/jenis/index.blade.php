@@ -11,7 +11,7 @@
     <!-- Default box -->
     <div class="card shadow-lg p-3 mb-4 bg-body-tertiary rounded">
       <div class="card-header">
-      <h1 style="font-size: 40px;">Data jenis</h1>
+      <h1 style="font-size: 40px;">Jenis</h1>
        </div>
       
       <div class="card-body">
@@ -38,11 +38,11 @@
               </div>    
       @endif
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormjenis">
-        <i class="fas fa-plus"></i> Tambah Pengajuan
+        <i class="fas fa-plus"></i> Tambah Jenis
       </button>
-      {{-- <a href="{{route('jenis')}}" class="btn btn-danger">
+      <a href="{{route('pdff')}}" class="btn btn-danger">
         <i class="fas fa-file-pdf"></i> Export PDF
-      </a> --}}
+      </a>
       <button class="btn btn-primary"data-toggle="modal" data-target="#form-import"><i class="fa-solid fa-file-export"></i>import excel</button>
 
       <a href="{{ url('export/jenis') }}" class="btn-success btn"><span> <i class="fas fa-table"></i>Export
@@ -129,7 +129,7 @@
       Swal.fire({
        icon: 'error',
        title: 'Hapus Data',
-       html: `Apakah data <b>${jenis}</b> akan di hapus?`,
+       html: `Apakah data <b></b> akan di hapus?`,
        confirmButtonText: 'ya',
        denyButtonText: 'tidak',
        showDenyButton: true,
@@ -140,5 +140,5 @@
     })
 
     })
-   </script>
+</script>
 @endpush

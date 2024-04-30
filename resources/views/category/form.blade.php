@@ -9,14 +9,14 @@
                 </button> 
             </div> 
             <div class="modal-body"> 
-                <form method="post" action={{ route('Category.store') }}> 
+                <form method="post" action={{ route('category.index') }}> 
                     @csrf
                    
                     <div class="form-group row"> 
-                        <label for="nama_Category" class="col-sm-4 col-form-label">nama Category</label> 
+                        <label for="nama_category" class="col-sm-4 col-form-label">nama Category</label> 
                         <div class="col-sm-8"> 
-                            <input type="text" class="form-control" id="nama_Category" placeholder="nama_Category" 
-                                name="nama Category"> 
+                            <input type="text" class="form-control" id="nama_category" placeholder="nama_category" 
+                                name="nama_category"> 
                         </div> 
                     </div>
                     
@@ -42,7 +42,7 @@
                 </button> 
             </div> 
             <div class="modal-body"> 
-                <form method="POST" action="{{route('import-Category') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('import-category') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="file" id="file" name="import">
                     <div class="modal-footer"> 

@@ -3,6 +3,7 @@
         <tr>
             <th>No</th>
             <th>nama jenis</th>
+           
         </tr>
     </thead>
     <tbody>
@@ -10,6 +11,8 @@
         <tr>
             <td>{{ $i = !isset($i)?$i=1:++$i}}</td>
             <td>{{ $p->nama_jenis}}</td>
+         
+            
           </tr>
         @endforeach
     </tbody>

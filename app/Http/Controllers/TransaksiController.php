@@ -32,7 +32,7 @@ class TransaksiController extends Controller
             DB::beginTransaction();
             $insertTransaksi = Transaksi::create([
                 'id' => $noTrans,
-                'tanggal' => date('Ymd'),
+                'tanggal' => date('Y-m-d'),
                 'total_harga' => $validated['total'],
                 'metode_pembayaran' => 'cash',
                 'keterangan' => ''

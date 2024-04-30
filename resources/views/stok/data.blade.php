@@ -1,22 +1,25 @@
-<table class="table table-compact table-stripped" id="myJenis">
+<table class="table table-compact table-stripped" id="myTable">
     <thead>
         <tr>
             <th>No</th>
+            <th>nama menu</th>
             <th>jumlah stok</th>
             <th>action</th>
 
         </tr>
     </thead>
     <tbody>
-        @foreach($data['stok'] as $p)
+        @foreach($stok as $p)
         <tr>
             <td>{{ $i = !isset($i)?$i=1:++$i}}</td>
+            <td>{{ $p->menu->nama_menu}}</td>
             <td>{{ $p->jumlah_stok}}</td>
+        
            
-            
             <td>
                 <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#editform"data-mode = "edit" 
                 data-id = "{{ $p->id}}"
+                nama-menu_id = "{{ $p->menu_id }}"
                 data-jumlah_stok ="{{ $p->jumlah_stok}}"
                 >
                 <i class="fas fa-edit"></i>

@@ -15,8 +15,10 @@
             <td>{{ $i = !isset($i)?$i=1:++$i}}</td>
             <td>{{ $p->nama_menu}}</td>
             <td>{{ $p->harga}}</td>
-            <td>{{ $p->image}}</td>
-            <td>{{ $p->jenis_id}}</td>
+            <td>{{ $p->jenis->nama_jenis}}</td>
+            <td>
+                <img src="{{ asset('storage/'.$p->image) }}" alt="image" class="" style="width: 60px; height: 60px;">    
+            </td>
             <td>{{ $p->deskripsi}}</td>
         </tr>
         @endforeach
