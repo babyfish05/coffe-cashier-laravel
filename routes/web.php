@@ -48,6 +48,7 @@ Route::resource('category', CategoryController::class);
 Route::resource('category', CategoryController::class);
 Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
 Route::post('/category-import', [CategoryController::class, 'importData'])->name('import-category');
+Route::get('generate/category', [CategoryController::class, 'generatepdf'])->name('category');
 
 //karyawan
 Route::get('/export/karyawan', [KaryawanController::class, 'export'])->name('export-karyawan');

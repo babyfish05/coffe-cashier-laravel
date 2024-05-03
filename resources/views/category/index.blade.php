@@ -40,7 +40,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormCategory">
         <i class="fas fa-plus"></i> Tambah category
       </button>
-      <a href="{{route('category.store')}}" class="btn btn-danger">
+      <a href="{{route('category')}}" class="btn btn-danger">
         <i class="fas fa-file-pdf"></i> Export PDF
       </a>
       <button class="btn btn-primary"data-toggle="modal" data-target="#form-import"><i class="fa-solid file-export"></i>import excel</button>

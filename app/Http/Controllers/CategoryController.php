@@ -43,7 +43,7 @@ class categoryController extends Controller
 
         category::create($validated);
 
-        return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+        return redirect()->back()->with('success', 'import berhasil');
     }
 
     /**
@@ -97,10 +97,10 @@ class categoryController extends Controller
     //     Excel::import(new categoryImport, $request->import);
     //     return redirect()->back()->with('success', 'import berhasil');
     // }
-    // public function generatepdf()
-    // {
-    //     $data['category'] = category::all();
-    //     $pdf = Pdf::loadView('category.data', compact('data'));
-    //     return $pdf->download('category.pdf');
-    // }
+    public function generatepdf()
+    {
+        $data['category'] = category::all();
+        $pdf = Pdf::loadView('category.data', compact('data'));
+        return $pdf->download('category.pdf');
+    }
 }

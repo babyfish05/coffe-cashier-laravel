@@ -53,7 +53,7 @@
                                 <span class="h2 font-weight-bold mb-0"> {{ $data['totalPendapatan'] }}</span>
                             </div>
                             <div class="col-auto">
-                                <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                                <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
                                     <i class="ni ni-money-coins"></i>
                                 </div>
                             </div>

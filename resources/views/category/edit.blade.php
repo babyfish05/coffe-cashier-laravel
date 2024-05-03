@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document"> 
         <div class="modal-content"> 
             <div class="modal-header"> 
-                <h5 class="modal-title" id="exampleModalLabel">Edit data Pengajuan</h5> 
+                <h5 class="modal-title" id="exampleModalLabel">Edit data</h5> 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
                     <span aria-hidden="true">&times;</span> 
                 </button> 
@@ -14,7 +14,7 @@
                     @method('put')
                     
                     <div class="form-group row"> 
-                        <label for="nama_category" class="col-sm-4 col-form-label">nama jenis</label> 
+                        <label for="nama_category" class="col-sm-4 col-form-label">nama category</label> 
                         <div class="col-sm-8"> 
                             <input type="text" class="form-control" id="nama_category" placeholder="nama_category" 
                                 name="nama_category"> 
